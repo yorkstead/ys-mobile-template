@@ -1,7 +1,7 @@
 # Current handoff
 
 - Date: 2026-10-20
-- Branch: fix/expo-dependency-check
+- Branch: fix/vercel-web-export
 - Active spec: specs/001-template-standardization/spec.md
 - Plan/tasks: same directory, plan.md and tasks.md
 - Current task: T004, review and delivery; external validation limitations below remain explicit.
@@ -30,3 +30,9 @@ The owner created https://github.com/yorkstead/ys-mobile-template as a public em
 Setting is_template=true still returns HTTP 403 Resource not accessible by integration. An owner must enable Template repository in Settings.
 
 Before release, resolve the failed/unrun platform and security checks above as applicable. Keep credentials in secure settings or ignored files, never handoffs. No migration, production change, merge, deployment, signed binary or EAS update was performed.
+
+## Deployment investigation
+
+The owner merged PR #2. Base starter main deployed successfully, while commerce and mobile main report Vercel failure statuses. Vercel CLI inspection found no credentials in this cloud, so detailed deployment logs remain unavailable. First failure excerpts were requested from the owner.
+
+The mobile repository lacked an explicit Vercel output contract. This branch adds build:web and vercel.json (Other framework, npm ci --include=dev, web export, dist output, clean URLs). The exact web build and expected home/settings/nested-route HTML outputs pass locally. No direct deployment, merge or production settings change was performed. Review the PR and compare the actual Vercel error before claiming all remote failures resolved.

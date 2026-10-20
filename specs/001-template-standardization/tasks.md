@@ -12,3 +12,5 @@ See docs/handoffs/CURRENT.md for the current task, verification, next action and
 T003 is complete as a local verification/review task; the evidence explicitly records external blockers and security findings rather than claiming a production release. T004 remains open until review/merge and mobile repository/template administration are resolved.
 
 Mobile GitHub delivery: owner created the public repository; main baseline and implementation branch pushed, PR #1 opened. Review/merge, template status and release checks remain owner/review tasks.
+
+- [x] T005 Define and validate optional Vercel web export — verify: npm run build:web exports home, settings and nested project HTML; npm run verify passes. Original remote failure awaits build-log confirmation.

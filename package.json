@@ -21,7 +21,8 @@
     "test:yorkstead": "node --test tests/yorkstead.test.mjs",
     "yorkstead:check": "node scripts/yorkstead-check.mjs",
     "yorkstead:init": "node scripts/yorkstead-init.mjs",
-    "verify": "npm run yorkstead:check && npm run lint && npm run format:check && npm run typecheck && npm test && npm run test:yorkstead"
+    "verify": "npm run yorkstead:check && npm run lint && npm run format:check && npm run typecheck && npm test && npm run test:yorkstead",
+    "build:web": "expo export --platform web"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",

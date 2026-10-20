@@ -23,3 +23,7 @@ Home and Settings tabs, a nested project route, missing-route/project states, sa
 See [verification](docs/verification.md), [architecture and package decisions](docs/architecture.md), [EAS setup](docs/eas.md), and [the Yorkstead contract](docs/yorkstead-contract.md). Codex, Claude Code, Gemini CLI and Copilot use AGENTS.md and repository handoffs as shared state.
 
 EAS Build profiles for development, simulator, preview and production, Submit profile, channels and runtime policy are included. No Expo project ID or signing credentials are invented. Updates are disabled until you link your own EAS project and configure its update URL. Store submission and update publication are separate authorized operations; see docs/eas.md.
+
+## Optional web hosting on Vercel
+
+The repository includes `vercel.json` for the Expo web output: framework Other, frozen npm install with build dependencies, `npm run build:web`, and `dist` as the static output directory. Clean URLs serve exported HTML routes directly; no catch-all rewrite hides missing routes. This web target does not create native binaries or publish EAS updates. See [web hosting](docs/web-hosting.md) for checks and setup.

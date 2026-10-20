@@ -15,3 +15,5 @@ Use Node.js 24; preserve existing package managers and application libraries. Th
 Run docs/verification.md. Keep hosted-service/device checks distinct from local static and bundle checks. Rollback is a reviewed Git revert; there are no migrations or deployments to reverse.
 
 CI compatibility correction: align Jest29/types with Expo SDK57 online recommendations while retaining the existing unit/component tests; validate clean installation and the full GitHub verification job.
+
+Web deployment correction: explicitly export the Expo web target to dist with Vercel static/clean-URL configuration, preserving native builds and EAS. Validate the exact command locally; remote failures remain unconfirmed until build logs/status are available.
