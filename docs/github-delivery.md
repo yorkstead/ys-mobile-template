@@ -1,18 +1,17 @@
 # GitHub delivery
 
-The local mobile implementation is on feat/yorkstead-mobile-starter. Repository creation and template settings returned HTTP 403 Resource not accessible by integration. This is a GitHub App permission limit, not missing Git authentication.
+Repository: https://github.com/yorkstead/ys-mobile-template
 
-An owner must create a private empty yorkstead/ys-mobile-template repository and grant the integration access. The local repository includes a minimal main baseline so the implementation can be reviewed as a PR. After access is granted, from this checkout run:
+Implementation PR: https://github.com/yorkstead/ys-mobile-template/pull/1
 
-```sh
-git push -u origin main feat/yorkstead-mobile-starter
-gh pr create --repo yorkstead/ys-mobile-template --base main --head feat/yorkstead-mobile-starter --title "Add Yorkstead Expo mobile starter" --body-file docs/mobile-pr.md
-```
+The owner created an empty public repository. Its visibility was preserved. The minimal main baseline and feat/yorkstead-mobile-starter implementation branch were pushed without overwriting existing remote content. Review the PR before merging; default main contains only the baseline until review/merge.
 
-Do not merge automatically. If the owner initializes remote main separately, reconcile its baseline without overwriting owner changes before opening the PR. Enable Use as template on all three application repositories after review. No private repository was made public.
+The GitHub integration still cannot set is_template=true (HTTP 403 Resource not accessible by integration). An owner must enable **Template repository** in repository Settings. Do not merge or deploy automatically.
 
-Existing PRs:
+Other ecosystem PRs:
 
 - https://github.com/yorkstead/yorkstead-project-template/pull/1
 - https://github.com/yorkstead/ys-base-template/pull/1
 - https://github.com/yorkstead/ys-commerce-template/pull/1
+
+Native/device/signing and hosted-service checks, plus dependency security findings, remain documented in verification and audit reports.

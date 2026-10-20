@@ -25,6 +25,8 @@ Independent reviewer inspected shared tooling, CI and platform/secret boundaries
 
 ## Delivery and next exact action
 
-Review the implementation PR before merging; no merge or deployment is authorized. GitHub reads and branch pushes work. Repository creation and template-setting updates returned HTTP 403 Resource not accessible by integration. An owner must create the private yorkstead/ys-mobile-template repository, grant the GitHub integration access, and enable Use as template on the three application repositories. Then push the preserved mobile implementation branch and open its PR. Until review/merge, generated projects use existing default-branch content.
+The owner created https://github.com/yorkstead/ys-mobile-template as a public empty repository; visibility was preserved. main and feat/yorkstead-mobile-starter were pushed. Review https://github.com/yorkstead/ys-mobile-template/pull/1 before merging. Default main contains only the baseline until review/merge. No merge or deployment is authorized.
 
-For this repository, first resolve the failed/unrun platform and security checks above as applicable before release. Keep user service credentials in secure settings or ignored files; never in handoffs. No database migration, production change, merge, deployment, signed binary or EAS update was performed.
+Setting is_template=true still returns HTTP 403 Resource not accessible by integration. An owner must enable Template repository in Settings.
+
+Before release, resolve the failed/unrun platform and security checks above as applicable. Keep credentials in secure settings or ignored files, never handoffs. No migration, production change, merge, deployment, signed binary or EAS update was performed.
