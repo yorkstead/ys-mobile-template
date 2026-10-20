@@ -1,7 +1,7 @@
 # Current handoff
 
 - Date: 2026-10-20
-- Branch: feat/yorkstead-mobile-starter
+- Branch: fix/expo-dependency-check
 - Active spec: specs/001-template-standardization/spec.md
 - Plan/tasks: same directory, plan.md and tasks.md
 - Current task: T004, review and delivery; external validation limitations below remain explicit.
@@ -15,8 +15,8 @@
 - `npm run build`: passed, Android/iOS Hermes bundles and web output including /projects/first-slice.
 - Browser smoke with cloud Playwright/Chromium: passed homepage, Home/Settings tabs, invalid-name error, valid local update, dark/device theme controls, nested project navigation and direct route reload; no page errors.
 - `EXPO_OFFLINE=1 npx expo install --check`: reports dependencies up to date against bundled SDK metadata; runner warns offline validation is less reliable.
-- Online dependency check: blocked by proxy access to api.expo.dev; domain saved in cloud draft, not yet live.
-- `npm audit --json`: findings remain (87 high, 17 moderate affected package entries, not distinct root advisories); see docs/dependency-audit.md.
+- Online dependency check from this cloud: blocked by proxy access to api.expo.dev. GitHub CI revealed a Jest30 mismatch; Jest29/types are now aligned and CI is being rerun.
+- `npm audit --json`: findings remain (53 high, 20 moderate affected package entries, not distinct root advisories); see docs/dependency-audit.md.
 - Android/iOS native compilation, simulators/devices, signed builds, EAS publication and store submission: not run; platform SDKs/signing/accounts are not available. Exports do not prove native runtime readiness.
 
 ## Review
@@ -25,7 +25,7 @@ Independent reviewer inspected shared tooling, CI and platform/secret boundaries
 
 ## Delivery and next exact action
 
-The owner created https://github.com/yorkstead/ys-mobile-template as a public empty repository; visibility was preserved. main and feat/yorkstead-mobile-starter were pushed. Review https://github.com/yorkstead/ys-mobile-template/pull/1 before merging. Default main contains only the baseline until review/merge. No merge or deployment is authorized.
+The owner created https://github.com/yorkstead/ys-mobile-template as a public empty repository; visibility was preserved. main and feat/yorkstead-mobile-starter were pushed. PR #1 was merged on GitHub by the owner. The follow-up https://github.com/yorkstead/ys-mobile-template/pull/2 aligns Jest29/types with Expo SDK57 online compatibility recommendations and exposes check failures in annotations. Clean installation and all local verification pass; inspect the follow-up GitHub Actions result before review. Do not merge or deploy automatically.
 
 Setting is_template=true still returns HTTP 403 Resource not accessible by integration. An owner must enable Template repository in Settings.
 

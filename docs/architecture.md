@@ -24,3 +24,7 @@ Lockfile pins resolved package versions. Use `npx expo install --check` to detec
 TanStack Query caches server-shaped data; Zustand stores local preferences only. React Hook Form and Zod implement actual form validation. NativeWind powers native styling; theme selection follows the device by default and can be overridden in Settings. Native safe areas, minimum 48-point controls, scalable text and accessibility labels are used; screen-reader/device audits remain required.
 
 No hosted database, payment provider, production auth, token refresh or fake credentials are included. Add integrations under a specification covering threat boundaries, error handling, privacy and rollback.
+
+## Test runner compatibility
+
+The online Expo SDK57 dependency check in GitHub CI requires Jest ~29.7.0 and @types/jest 29.5.14. The starter pins Jest 29.7.0 and those types rather than using the newer Jest30 family. The offline bundled-native check does not cover every remotely recommended development dependency; keep the online CI check.

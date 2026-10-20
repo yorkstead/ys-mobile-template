@@ -13,3 +13,5 @@ Use Node.js 24; preserve existing package managers and application libraries. Th
 ## Verification and rollback
 
 Run docs/verification.md. Keep hosted-service/device checks distinct from local static and bundle checks. Rollback is a reviewed Git revert; there are no migrations or deployments to reverse.
+
+CI compatibility correction: align Jest29/types with Expo SDK57 online recommendations while retaining the existing unit/component tests; validate clean installation and the full GitHub verification job.
