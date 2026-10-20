@@ -16,7 +16,16 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run verify
-      - run: npx expo install --check
+      - name: Check Expo native dependency alignment
+        run: |
+          if npx expo install --check > "$RUNNER_TEMP/expo-dependencies.log" 2>&1; then
+            cat "$RUNNER_TEMP/expo-dependencies.log"
+          else
+            check_status=$?
+            cat "$RUNNER_TEMP/expo-dependencies.log"
+            node -e 'const fs = require("node:fs"); const log = fs.readFileSync(process.argv[1], "utf8"); console.log("::error::" + log.replaceAll("%", "%25").replaceAll("\r", "%0D").replaceAll("\n", "%0A"));' "$RUNNER_TEMP/expo-dependencies.log"
+            exit "$check_status"
+          fi
       - run: npm run build
         env:
           CI: "1"
